@@ -42,6 +42,9 @@ h2 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
 button {
   margin: 6px;
   border: 1px solid transparent;
@@ -119,6 +122,10 @@ button {
   font-size: var(--font-size-medium);
 }
 
+.btn__reset_parent  {
+  margin-top: 3%;
+}
+
 /* Overlay */
 
 #overlay {
@@ -161,3 +168,5 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+
