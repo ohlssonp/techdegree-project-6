@@ -29,18 +29,14 @@ function getRandomPhraseAsArray(arr) {
 
 // Define the addPhraseToDisplay function
 function addPhraseToDisplay(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = arr[i];
-        phraseUl.appendChild(li);
-        if (/\w/.test(arr[i])) {
-            li.classList.add('letter');
-        } else {
-            li.classList.add('space');
-        }
-    }
-}
-
+    const phraseUl = document.querySelector('#phrase ul');
+    arr.forEach((element) => {
+      const li = document.createElement('li');
+      li.textContent = element;
+      phraseUl.appendChild(li);
+      li.classList.add(element.match(/[a-z]/i) ? 'letter' : 'space');
+    });
+  }
 // Call the getRandomPhraseAsArray function to get a random phrase and add it to the display
 const phraseArray = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
@@ -135,7 +131,6 @@ function gameOver(won) {
     overlay.appendChild(gameResult);
     overlay.style.display = 'flex';
 
-    
     // Remove the "Start Game" button
     document.querySelector('.btn__reset').remove();
   
