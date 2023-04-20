@@ -1,4 +1,4 @@
-const phraseUl = document.querySelector('#phrase ul');
+const phrase = document.querySelector('#phrase');
 const qwerty = document.querySelector('#qwerty');
 const startButton = document.querySelector('.btn__reset');
 const overlay = document.querySelector('#overlay');
@@ -12,7 +12,6 @@ const phrases = [
     'javascript'
 ];
 
-
 startButton.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
@@ -24,11 +23,10 @@ function getRandomPhraseAsArray(arr) {
 }
 
 function addPhraseToDisplay(arr) {
-    const phraseUl = document.querySelector('#phrase ul');
     arr.forEach((element) => {
       const li = document.createElement('li');
       li.textContent = element;
-      phraseUl.appendChild(li);
+      phrase.appendChild(li);
       li.classList.add(element.match(/[a-z]/i) ? 'letter' : 'space');
     });
   }
@@ -92,8 +90,8 @@ function gameOver(won) {
     resetButton.addEventListener('click', () => {
 
       missed = 0;
-      const oldPhrase = document.querySelector('#phrase ul');
-      oldPhrase.innerHTML = '';
+      const oldPhrase = phrase.querySelectorAll('li');
+      oldPhrase.forEach(li => li.remove());
       const newPhrase = getRandomPhraseAsArray(phrases);
       addPhraseToDisplay(newPhrase);
   
