@@ -89,6 +89,8 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .space {
@@ -98,6 +100,7 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  opacity: 1;
 }
 
 /* Keyboard */
